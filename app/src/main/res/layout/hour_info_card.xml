@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/cards_bg"
+    android:layout_margin="16dp"
+    android:padding="10dp"
+    app:cardCornerRadius="10dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/cards_bg"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:text="@string/hours_Together_holder"
+                android:textColor="@color/white" />
+
+
+            <TextView
+                android:id="@+id/tv_togetherHoursThisMonth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0H"
+                android:paddingLeft="10dp"
+                android:textSize="14sp"
+                android:textColor="@color/Yellow_color" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:visibility="invisible"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/paycheck_holder"
+                android:textColor="@color/white" />
+
+
+            <TextView
+                android:visibility="invisible"
+                android:id="@+id/tv_paycheck"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0e"
+                android:textColor="@color/white" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
