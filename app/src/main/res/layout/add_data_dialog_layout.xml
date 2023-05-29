@@ -3,22 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@color/black_dialog_bg"
+    android:background="@color/main_activity_bc"
     android:orientation="vertical"
     android:padding="16dp">
 
 
     <TextView
         android:id="@+id/text_holder"
-        android:textColor="@color/white"
+        android:textColor="@color/calendar_month_header_text"
         android:text="Selected Date"
         android:textSize="24sp"
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
+
     <TextView
         android:id="@+id/add_data_dialog_SelectedDate_textView"
-        android:textColor="@color/white"
+        android:textColor="@color/calendar_month_header_text"
         android:layout_below="@id/text_holder"
         android:text="16.02.2023"
         android:textSize="24sp"
@@ -32,13 +33,13 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/add_data_dialog_SelectedDate_textView"
         android:layout_centerInParent="true"
-        app:trp_clockLabelColor="@color/white"
-        app:trp_clockTickColor="@color/white"
+        app:trp_clockLabelColor="@color/Primar_color"
+        app:trp_clockTickColor="@color/Primar_color"
         app:trp_endTime="15:00"
-        app:trp_sliderRangeColor="@color/Yellow_color"
+        app:trp_sliderRangeColor="@color/Acient_color"
         app:trp_startTime="7:00"
-        app:trp_stepTimeMinutes="30"
-        app:trp_thumbColor="@color/Yellow_color"
+        app:trp_stepTimeMinutes="10"
+        app:trp_thumbColor="@color/Acient_color"
         app:trp_thumbIconEnd="@drawable/ic_end"
         app:trp_thumbIconStart="@drawable/ic_start_new" />
 
@@ -48,7 +49,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:text="Worked: 8 H"
-        android:textColor="@color/white" />
+        android:textColor="@color/calendar_month_header_text" />
 
     <Button
         android:id="@+id/add_data_dialog_button_save"
@@ -56,10 +57,10 @@
         android:layout_below="@id/add_data_dialog_timePicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/cards_bg"
+        android:backgroundTint="@color/white"
         android:layout_alignParentRight="true"
         android:text="@string/Add_Data_Dialog_Save_Button"
-        android:textColor="@color/Yellow_color" />
+        android:textColor="@color/Acient_color" />
 
     <Button
         android:id="@+id/add_data_dialog_button_cancle"
@@ -67,10 +68,10 @@
         android:layout_below="@id/add_data_dialog_timePicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/cards_bg"
+        android:backgroundTint="@color/white"
         android:layout_alignParentLeft="true"
         android:text="@string/Add_Data_Dialog_Cancle_Button"
-        android:textColor="@color/white" />
+        android:textColor="@color/Acient_color" />
 
 
 </RelativeLayout>

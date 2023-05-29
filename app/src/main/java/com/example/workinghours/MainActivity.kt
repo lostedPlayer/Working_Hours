@@ -1,35 +1,31 @@
 package com.example.workinghours
 
-import android.app.Application
 import android.content.DialogInterface
-import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.OnScrollListener
 import com.example.workinghours.DataBase.WorkHours
 import com.example.workinghours.DataBase.WorkHoursViewModel
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.kizitonwose.calendarview.CalendarView
 import com.kizitonwose.calendarview.model.CalendarDay
 import com.kizitonwose.calendarview.model.CalendarMonth
 import com.kizitonwose.calendarview.ui.DayBinder
 import com.kizitonwose.calendarview.ui.MonthHeaderFooterBinder
 import com.kizitonwose.calendarview.ui.MonthScrollListener
+import com.kizitonwose.calendarview.utils.next
 import nl.joery.timerangepicker.TimeRangePicker
 import java.time.YearMonth
 import java.time.temporal.WeekFields
-import java.util.*
-import kotlin.collections.ArrayList
+import java.util.Locale
 
 
 class MainActivity : AppCompatActivity() {
@@ -37,45 +33,46 @@ class MainActivity : AppCompatActivity() {
     //Views
     lateinit var calendarView: CalendarView
     lateinit var tv_TogetherHoursThisMonth: TextView
-    lateinit var tv_paycheck: TextView
+    lateinit var tv_workDaysInMonth: TextView
 
 
     lateinit var mViewModel: WorkHoursViewModel
     lateinit var list: List<WorkHours>
     var togetherHours: Double = 0.0
+    var workedDays: Int = 0
     var mSelectedMonth: Int = 1
     var mSelectedYear: Int = 1
 
 
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        supportActionBar!!.hide()
         calendarView = findViewById(R.id.cv_main)
         tv_TogetherHoursThisMonth = findViewById(R.id.tv_togetherHoursThisMonth)
-        tv_paycheck = findViewById(R.id.tv_paycheck)
+        tv_workDaysInMonth = findViewById(R.id.tv_togetherWorkDaysThisMonth)
         list = ArrayList<WorkHours>()
-
-
-        //get view model for Room Database
-        mViewModel = ViewModelProvider(this).get(WorkHoursViewModel::class.java)
-
-        // TODO: ONLY FOR TEST REMOVE LATER
 
         calendarDaySetup()
         calendarMonthSetup()
 
+        //get view model for Room Database
+        mViewModel = ViewModelProvider(this).get(WorkHoursViewModel::class.java)
 
         //Getting data from database
         mViewModel.getAllData().observe(this, androidx.lifecycle.Observer { list ->
             this.list = list
-            Log.d("M1", "DataBaza podatci " + list.toString())
             togetherHours = 0.0
+            workedDays = 0
+            tv_TogetherHoursThisMonth.text = togetherHours.toString()
+            tv_workDaysInMonth.text = workedDays.toString()
+
             for (data in list) {
                 if (data.month == mSelectedMonth) {
+                    workedDays++
                     togetherHours += data.hoursWorked
                     tv_TogetherHoursThisMonth.text = togetherHours.toString()
+                    tv_workDaysInMonth.text = workedDays.toString()
+                    Log.d("Main_Activity", "Work Hours Together " + togetherHours.toString())
                 }
             }
             calendarDaySetup()
@@ -87,15 +84,20 @@ class MainActivity : AppCompatActivity() {
             override fun invoke(scrolledToMonth: CalendarMonth) {
 
                 togetherHours = 0.0
+                workedDays = 0
+                mSelectedMonth = scrolledToMonth.month
                 tv_TogetherHoursThisMonth.text = togetherHours.toString()
+                tv_workDaysInMonth.text = workedDays.toString()
                 for (data in list) {
                     Log.d(
                         "M1",
                         "Database: ${data.month} , ${data.year}  calendar data ${scrolledToMonth.month}/${scrolledToMonth.year} "
                     )
                     if (data.month == scrolledToMonth.month && data.year == scrolledToMonth.year) {
+                        workedDays++
                         togetherHours += data.hoursWorked
                         tv_TogetherHoursThisMonth.text = togetherHours.toString()
+                        tv_workDaysInMonth.text = workedDays.toString()
                     }
                 }
             }
@@ -105,8 +107,20 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+
+    //Options menu inflater
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_activity_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return super.onOptionsItemSelected(item)
+    }
+
+
     //day setup for calendar View
-    fun calendarDaySetup() {
+    private fun calendarDaySetup() {
 
         calendarView.dayBinder = object : DayBinder<DayViewContainer> {
             override fun bind(container: DayViewContainer, sDay: CalendarDay) {
@@ -126,9 +140,9 @@ class MainActivity : AppCompatActivity() {
                 container.cell_box.setOnLongClickListener {
                     if (container.tv_workHours.visibility.equals(View.VISIBLE)) {
                         val alertDialogBuilder = AlertDialog.Builder(this@MainActivity)
-                            .setTitle("Do you want to delete Work Hours for this day?")
+                            .setTitle(getString(R.string.delete_workHour_alertDialog_title))
                             .setPositiveButton(
-                                "Delete",
+                                getString(R.string.delete_workHour_AlertDialog_delete_button),
                                 DialogInterface.OnClickListener { dialog, which ->
 
                                     val date = sDay.date
@@ -140,7 +154,10 @@ class MainActivity : AppCompatActivity() {
 
 
                                 })
-                            .setNegativeButton("Cancle", null)
+                            .setNegativeButton(
+                                getString(R.string.delete_workHour_AlertDialog_cancle_button),
+                                null
+                            )
                             .show()
 
                     }
@@ -174,15 +191,23 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun calendarMonthSetup() {
+   private fun calendarMonthSetup() {
         calendarView.monthHeaderBinder = object : MonthHeaderFooterBinder<MonthViewContainer> {
+
+
             override fun bind(container: MonthViewContainer, month: CalendarMonth) {
-                container.tv_month.text = "${month.yearMonth.month.name} / ${month.year}"
+                container.tv_month.text = "${month.year} ${month.yearMonth.month.name}  "
+
 
             }
 
 
             override fun create(view: View): MonthViewContainer {
+                val bt = view.findViewById<ImageView>(R.id.bt_next_month_calendar_header)
+                bt.setOnClickListener {
+                    val curentMonth = YearMonth.now()
+                    calendarView.smoothScrollToMonth(curentMonth.next)
+                }
                 return MonthViewContainer(view)
             }
 
@@ -214,7 +239,7 @@ class MainActivity : AppCompatActivity() {
         val mSelectedDate_tv =
             view.findViewById<TextView>(R.id.add_data_dialog_SelectedDate_textView)
 
-        mSelectedDate_tv.text = "$day:$month:$year"
+        mSelectedDate_tv.text = "$day.$month.$year"
 
         //time picker
         mTimePicker.setOnTimeChangeListener(object : TimeRangePicker.OnTimeChangeListener {
@@ -242,12 +267,16 @@ class MainActivity : AppCompatActivity() {
         mSaveButton.setOnClickListener {
             val newData = WorkHours(0, day, month, year, mWorkedHours)
             mViewModel.insertData(newData)
+            calendarView.notifyCalendarChanged()
             mDialogBuilder.dismiss()
 
         }
 
+
         mDialogBuilder.setView(view)
         mDialogBuilder.show()
+
+
     }
 
 

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black_bg"
+    android:background="@color/main_activity_bc"
+    android:padding="5dp"
     tools:context=".MainActivity">
 
     <com.kizitonwose.calendarview.CalendarView
@@ -21,9 +22,14 @@
 
 
     <include
+        android:id="@+id/togetherHours_Layout"
+        android:layout_marginTop="15dp"
         layout="@layout/hour_info_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/cv_main" />
+
+
+
 
 </RelativeLayout>

@@ -1,15 +1,9 @@
 package com.example.workinghours.DataBase
 
 import android.content.Context
-import android.os.AsyncTask
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import androidx.sqlite.db.SupportSQLiteDatabase
-import java.util.concurrent.Executor
-import androidx.lifecycle.*
 import java.util.concurrent.Executors
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 @androidx.room.Database(entities = arrayOf(WorkHours::class), version = 1, exportSchema = false)
 public abstract class WorkHoursDatabase : RoomDatabase() {

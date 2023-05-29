@@ -1,7 +1,12 @@
 <resources>
     <string name="app_name">Working Hours</string>
-    <string name="hours_Together_holder">Together Hours This Month: </string>
+    <string name="hours_Together_holder">This Month: </string>
     <string name="paycheck_holder">Payment This Month: </string>
     <string name="Add_Data_Dialog_Save_Button">Save</string>
     <string name="Add_Data_Dialog_Cancle_Button">Cancel</string>
+    <string name="main_activity_settings_title">Settings</string>
+    <string name="mainActivity_menu_option_export_data">Export Data</string>
+    <string name="delete_workHour_alertDialog_title">Do you want to delete Work Hours for this day?</string>
+    <string name="delete_workHour_AlertDialog_delete_button">Delete</string>
+    <string name="delete_workHour_AlertDialog_cancle_button">Cancle</string>
 </resources>

@@ -1,14 +1,12 @@
 package com.example.workinghours
 
-import android.view.LayoutInflater
+import android.util.Log
 import android.view.View
-import android.widget.Button
+import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import com.kizitonwose.calendarview.ui.ViewContainer
-import nl.joery.timerangepicker.TimeRangePicker
 
 class DayViewContainer(view: View) : ViewContainer(view) {
 
@@ -22,9 +20,12 @@ class DayViewContainer(view: View) : ViewContainer(view) {
 
 class MonthViewContainer(view: View) : ViewContainer(view) {
     val tv_month = view.findViewById<TextView>(R.id.tv_calendar_header)
+    val bt_nextMonth = view.findViewById<ImageView>(R.id.bt_next_month_calendar_header)
+    val bt_previousMonth = view.findViewById<ImageView>(R.id.bt_previous_month_calendar_header)
 
     init {
         tv_month.getText()
+
 
     }
 

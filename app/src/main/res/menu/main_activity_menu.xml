@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/app_settings_main_activity_menu"
+        android:title="@string/main_activity_settings_title" />
+    <item
+        android:iconTint="@+id/export_main_activity_menu"
+        android:title="@string/mainActivity_menu_option_export_data" />
+</menu>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_500">#FFA000</color>
     <color name="purple_700">#0E0E0E</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
@@ -13,4 +13,21 @@
     <color name="cards_bg">#1B1B1B</color>
     <color name="Yellow_color">#FFA000</color>
     <color name="black_dialog_bg">#292929</color>
+
+    <color name="Primar_color">#25224c</color>
+    <color name="Secondary_color">#25224c</color>
+    <color name="Acient_color">#ec6330</color>
+
+
+    <color name="main_activity_bc">#f1f3f8</color>
+    <color name="calendar_cell_date_color">#dcdde1</color>
+    <color name="calendar_cell_bc_color">#FFF</color>
+    <color name="calendar_cell_work_hours_color">#ec6330</color>
+
+    <color name="calendar_month_header_bc">#f1f3f8</color>
+    <color name="calendar_month_header_text">#25224c</color>
+
+    <color name="calendar_together_hours_card_bc">#FFF</color>
+    <color name="calendar_together_hours_card_title_text">#25224c</color>
+
 </resources>
