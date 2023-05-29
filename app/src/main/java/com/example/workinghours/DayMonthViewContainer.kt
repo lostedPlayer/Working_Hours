@@ -20,8 +20,6 @@ class DayViewContainer(view: View) : ViewContainer(view) {
 
 class MonthViewContainer(view: View) : ViewContainer(view) {
     val tv_month = view.findViewById<TextView>(R.id.tv_calendar_header)
-    val bt_nextMonth = view.findViewById<ImageView>(R.id.bt_next_month_calendar_header)
-    val bt_previousMonth = view.findViewById<ImageView>(R.id.bt_previous_month_calendar_header)
 
     init {
         tv_month.getText()

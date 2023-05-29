@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@color/main_activity_bc"
+    android:background="@color/Add_workHours_dialog_picker_bc_color"
     android:orientation="vertical"
     android:padding="16dp">
 
@@ -33,12 +33,12 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/add_data_dialog_SelectedDate_textView"
         android:layout_centerInParent="true"
-        app:trp_clockLabelColor="@color/Primar_color"
-        app:trp_clockTickColor="@color/Primar_color"
+        app:trp_clockLabelColor="@color/Add_workHours_dialog_picker_text_color"
+        app:trp_clockTickColor="@color/Add_workHours_dialog_picker_text_color"
         app:trp_endTime="15:00"
         app:trp_sliderRangeColor="@color/Acient_color"
         app:trp_startTime="7:00"
-        app:trp_stepTimeMinutes="10"
+        app:trp_stepTimeMinutes="30"
         app:trp_thumbColor="@color/Acient_color"
         app:trp_thumbIconEnd="@drawable/ic_end"
         app:trp_thumbIconStart="@drawable/ic_start_new" />
@@ -57,10 +57,10 @@
         android:layout_below="@id/add_data_dialog_timePicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/white"
+        android:backgroundTint="@color/Add_workHours_dialog_button_bc"
         android:layout_alignParentRight="true"
         android:text="@string/Add_Data_Dialog_Save_Button"
-        android:textColor="@color/Acient_color" />
+        android:textColor="@color/Add_workHours_dialog_button_text_color" />
 
     <Button
         android:id="@+id/add_data_dialog_button_cancle"
@@ -68,10 +68,10 @@
         android:layout_below="@id/add_data_dialog_timePicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/white"
+        android:backgroundTint="@color/Add_workHours_dialog_button_bc"
         android:layout_alignParentLeft="true"
         android:text="@string/Add_Data_Dialog_Cancle_Button"
-        android:textColor="@color/Acient_color" />
+        android:textColor="@color/Add_workHours_dialog_button_text_color" />
 
 
 </RelativeLayout>

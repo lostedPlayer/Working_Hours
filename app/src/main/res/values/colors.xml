@@ -14,20 +14,26 @@
     <color name="Yellow_color">#FFA000</color>
     <color name="black_dialog_bg">#292929</color>
 
-    <color name="Primar_color">#25224c</color>
-    <color name="Secondary_color">#25224c</color>
+    <color name="Primar_color">#000</color>
+    <color name="Secondary_color">#1B1B1B</color>
     <color name="Acient_color">#ec6330</color>
 
 
-    <color name="main_activity_bc">#f1f3f8</color>
+    <color name="main_activity_bc">#000</color>
     <color name="calendar_cell_date_color">#dcdde1</color>
-    <color name="calendar_cell_bc_color">#FFF</color>
+    <color name="calendar_cell_bc_color">#1B1B1B</color>
     <color name="calendar_cell_work_hours_color">#ec6330</color>
 
-    <color name="calendar_month_header_bc">#f1f3f8</color>
-    <color name="calendar_month_header_text">#25224c</color>
+    <color name="calendar_month_header_bc">#000</color>
+    <color name="calendar_month_header_text">#FFF</color>
 
-    <color name="calendar_together_hours_card_bc">#FFF</color>
-    <color name="calendar_together_hours_card_title_text">#25224c</color>
+    <color name="calendar_together_hours_card_bc">#1B1B1B</color>
+    <color name="calendar_together_hours_card_title_text">#FFF</color>
+
+    <color name="Add_workHours_dialog_button_bc">#000</color>
+    <color name="Add_workHours_dialog_button_text_color">#ec6330</color>
+    <color name="Add_workHours_dialog_picker_text_color">#ec6330</color>
+    <color name="Add_workHours_dialog_picker_bc_color">#1B1B1B</color>
+
 
 </resources>

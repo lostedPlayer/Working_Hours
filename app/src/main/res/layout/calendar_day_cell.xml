@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@drawable/calendar_cell_bc"
+    android:background="@color/calendar_cell_bc_color"
     android:layout_margin="2dp"
     android:padding="2dp"
     android:id="@+id/day_cell_box"
@@ -34,7 +34,7 @@
         android:textStyle="bold"
         android:textAlignment="center"
         android:textColor="@color/calendar_cell_work_hours_color"
-        android:textSize="18sp" />
+        android:textSize="14sp" />
 
 
 

@@ -44,6 +44,12 @@ class MainActivity : AppCompatActivity() {
     var mSelectedYear: Int = 1
 
 
+    //TODO: Dodati dane iznad kalendara
+    //TODO: Dodati prebacivanje sledeceg ili prethodnog mjeseca sa dugmicima na kalendaru
+    //TODO: Dodati Notifikaciju kako bi podjstili korisnika da ne zaboravi unijeti svoje radne sate
+    //TODO: Dodati postavke gje ce se moci podesiti vrijeme notifikacije i normalno radno vrijeme kako bi se moglo izracunati prekovremeni sati
+    //TODO: Dodati mogucnost prenosenja sati izvan aplikacije u cvs excel formatu
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -196,18 +202,13 @@ class MainActivity : AppCompatActivity() {
 
 
             override fun bind(container: MonthViewContainer, month: CalendarMonth) {
-                container.tv_month.text = "${month.year} ${month.yearMonth.month.name}  "
+                container.tv_month.text = "${month.year}\n${month.yearMonth.month.name}  "
 
 
             }
 
 
             override fun create(view: View): MonthViewContainer {
-                val bt = view.findViewById<ImageView>(R.id.bt_next_month_calendar_header)
-                bt.setOnClickListener {
-                    val curentMonth = YearMonth.now()
-                    calendarView.smoothScrollToMonth(curentMonth.next)
-                }
                 return MonthViewContainer(view)
             }
 

@@ -6,36 +6,17 @@
     android:background="@color/calendar_month_header_bc"
     android:padding="10dp">
 
-
-    <ImageView
-        android:id="@+id/bt_previous_month_calendar_header"
-        android:src="@drawable/ic_back"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="20dp"
-        android:layout_width="24dp"
-        android:layout_height="24dp"/>
-
-
     <TextView
         android:id="@+id/tv_calendar_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:textColor="@color/calendar_month_header_text"
-        android:textSize="24sp"
-        tools:text="Januar" />
-
-
-    <ImageView
-        android:id="@+id/bt_next_month_calendar_header"
-        android:src="@drawable/ic_next"
-        android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:layout_marginRight="20dp"
-        android:layout_width="24dp"
-        android:layout_height="24dp"/>
-
-
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="5dp"
+        android:textStyle="bold"
+        android:textAlignment="textStart"
+        android:textColor="@color/calendar_month_header_text"
+        android:textSize="30sp"
+        tools:text="Januar" />
 
 </RelativeLayout>
