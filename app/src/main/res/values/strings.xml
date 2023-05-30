@@ -9,4 +9,6 @@
     <string name="delete_workHour_alertDialog_title">Do you want to delete Work Hours for this day?</string>
     <string name="delete_workHour_AlertDialog_delete_button">Delete</string>
     <string name="delete_workHour_AlertDialog_cancle_button">Cancle</string>
+    <string name="settings_activity_reminder_card_text">Set Reminder to enter data</string>
+    <string name="settings_activity_info_card_text">How To use Application</string>
 </resources>

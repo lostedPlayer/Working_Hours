@@ -1,6 +1,7 @@
 package com.example.workinghours
 
 import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,6 +11,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -45,7 +47,6 @@ class MainActivity : AppCompatActivity() {
 
 
     //TODO: Dodati dane iznad kalendara
-    //TODO: Dodati prebacivanje sledeceg ili prethodnog mjeseca sa dugmicima na kalendaru
     //TODO: Dodati Notifikaciju kako bi podjstili korisnika da ne zaboravi unijeti svoje radne sate
     //TODO: Dodati postavke gje ce se moci podesiti vrijeme notifikacije i normalno radno vrijeme kako bi se moglo izracunati prekovremeni sati
     //TODO: Dodati mogucnost prenosenja sati izvan aplikacije u cvs excel formatu
@@ -121,6 +122,21 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        when(item.itemId){
+            R.id.app_settings_main_activity_menu -> {
+                val settingsActivityIntent = Intent(this , SettingsActivity::class.java)
+                startActivity(settingsActivityIntent)
+            }
+
+            R.id.export_main_activity_menu->{
+
+            }
+
+
+        }
+
+
         return super.onOptionsItemSelected(item)
     }
 
