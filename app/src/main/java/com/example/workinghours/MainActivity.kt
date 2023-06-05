@@ -9,9 +9,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Button
-import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -23,8 +21,9 @@ import com.kizitonwose.calendarview.model.CalendarMonth
 import com.kizitonwose.calendarview.ui.DayBinder
 import com.kizitonwose.calendarview.ui.MonthHeaderFooterBinder
 import com.kizitonwose.calendarview.ui.MonthScrollListener
-import com.kizitonwose.calendarview.utils.next
 import nl.joery.timerangepicker.TimeRangePicker
+import java.io.FileOutputStream
+import java.io.OutputStream
 import java.time.YearMonth
 import java.time.temporal.WeekFields
 import java.util.Locale
@@ -129,7 +128,7 @@ class MainActivity : AppCompatActivity() {
                 startActivity(settingsActivityIntent)
             }
 
-            R.id.export_main_activity_menu->{
+            R.id.export_main_activity_menu -> {
 
             }
 
@@ -139,6 +138,9 @@ class MainActivity : AppCompatActivity() {
 
         return super.onOptionsItemSelected(item)
     }
+
+
+
 
 
     //day setup for calendar View
